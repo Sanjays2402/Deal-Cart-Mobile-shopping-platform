@@ -1,0 +1,8 @@
+# Deal Kart - Mobile Shopping Platform
+vendor/
+node_modules/
+*.log
+.env
+.DS_Store
+*.swp
+*.swo
