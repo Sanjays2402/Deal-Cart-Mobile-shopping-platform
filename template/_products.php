@@ -31,7 +31,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6">
-                            <img src="<?php echo $_GET['item_image']; ?>" alt="product" class="img-fluid">
+                            <img src="<?php echo htmlspecialchars($_GET['item_image'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" alt="product" class="img-fluid">
                             <div class="form-row pt-4 font-size-16 font-baloo">
                                 <div class="col">
                                     <form method='post'>
@@ -41,15 +41,15 @@
                                 <div class="col">
                                 <form method = "post">
                                     <input type="hidden" name="item_id" value="<?php echo $item['item_id']; ?>">
-                                    <input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>">
+                                    <input type="hidden" name="email" value="<?php echo htmlspecialchars($_SESSION['email'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
                                     <button type="submit" name="product-addtocart" class="btn btn-warning form-control">Add to Cart</button>
                                 </form>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6 py-5">
-                            <h5 class="font-baloo font-size-20"><?php echo $_GET['item_name']; ?></h5>
-                            <small>by <?php echo $_GET['item_brand']; ?></small>
+                            <h5 class="font-baloo font-size-20"><?php echo htmlspecialchars($_GET['item_name'] ?? '', ENT_QUOTES, 'UTF-8'); ?></h5>
+                            <small>by <?php echo htmlspecialchars($_GET['item_brand'] ?? '', ENT_QUOTES, 'UTF-8'); ?></small>
                             <div class="d-flex">
                                 <div class="rating text-warning font-size-12">
                                     <span><i class="fas fa-star"></i></span>
@@ -65,11 +65,11 @@
                                 <table class="my-3">
                                     <tr class="font-rale font-size-14">
                                         <td>M.R.P:</td>
-                                        <td><strike>₹<?php printf("%.2f",$_GET['item_price']+2500.00);?></strike></td>
+                                        <td><strike>₹<?php printf("%.2f",(float)($_GET['item_price'] ?? 0)+2500.00);?></strike></td>
                                     </tr>
                                     <tr class="font-rale font-size-14">
                                         <td>Deal Price:</td>
-                                        <td class="font-size-20 text-danger"><span>₹<?php printf("%.2f",$_GET['item_price']);?></span><small class="text-dark font-size-12">&nbsp;&nbsp;Inclusive of all taxes</small></td>
+                                        <td class="font-size-20 text-danger"><span>₹<?php printf("%.2f",(float)($_GET['item_price'] ?? 0));?></span><small class="text-dark font-size-12">&nbsp;&nbsp;Inclusive of all taxes</small></td>
                                     </tr>
                                     <tr class="font-rale font-size-14">
                                         <td>You Save:</td>
